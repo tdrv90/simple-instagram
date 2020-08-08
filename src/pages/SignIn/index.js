@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../../components/Header'
+import { auth } from '../../config/firebase'
 import { Button, Input } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 import styles from './index.module.css'
 
 const SignIn = () => {
+    const history = useHistory()
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const signIn = (e) => {
+        e.preventDefault()
+
+        auth.signInWithEmailAndPassword(email, password)
+            .catch((error) => alert(error.message))
+
+        history.push('/')
+    }
     return (
         <div >
             <Header />
@@ -15,19 +30,19 @@ const SignIn = () => {
                     <Input
                         placeholder="email"
                         type="text"
-                        value=""
-                        onChange=""
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
                 <div>
                     <Input
                         placeholder="password"
                         type="password"
-                        value=""
-                        onChange=""
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                <Button type="submit">Sign In</Button>
+                <Button type="submit" onClick={signIn}>Sign In</Button>
             </form>
         </div >
     )

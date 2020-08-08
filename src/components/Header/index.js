@@ -16,6 +16,7 @@ function Header() {
                 <LinkComponent title="Posts" href="/posts" type="header" />
                 <LinkComponent title="Add post" href="/add" type="header" />
                 <LinkComponent title="Logout" href="/logout" type="header" />
+
             </div>
         </header >
     )
