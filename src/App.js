@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { db, auth } from './config/firebase'
-import { Button } from '@material-ui/core'
+import { auth } from './config/firebase'
 import './App.css'
+
 
 function App(props) {
   const [userLoggedIn, setUserLoggedIn] = useState(null)
@@ -12,7 +12,6 @@ function App(props) {
         // user has logged in
         console.log(authUser)
         setUserLoggedIn(authUser)
-        console.log(userLoggedIn)
 
       } else {
         // user has logged out
@@ -26,17 +25,9 @@ function App(props) {
   }, [userLoggedIn])
 
   return (
-    <div className="App">
-      {userLoggedIn && (
-        <div>
-          <div>User is logged.</div>
-          <Button onClick={() => auth.signOut()}>
-            Logout
-        </Button>
-        </div>
-      )}
+    < div className="App" >
       {props.children}
-    </div>
+    </div >
   )
 }
 

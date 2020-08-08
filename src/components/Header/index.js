@@ -1,8 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import LinkComponent from '../Link'
+import { auth } from '../../config/firebase'
+import getNavigation from '../../utils/navigation'
 import styles from './index.module.css'
 
 function Header() {
+    const [userLoggedIn, setUserLoggedIn] = useState(null)
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
+            if (authUser) {
+                // user has logged in
+                console.log(authUser)
+                setUserLoggedIn(authUser)
+
+            } else {
+                // user has logged out
+                setUserLoggedIn(null)
+            }
+        })
+
+        return () => {
+            unsubscribe()
+        }
+    }, [userLoggedIn])
+
+    const links = getNavigation(userLoggedIn)
+
     return (
         <header >
             <div className={styles.header}>
@@ -11,12 +35,19 @@ function Header() {
                     alt=""
                     className={styles.header_images}
                 />
-                <LinkComponent title="Sign In" href="/signin" type="header" />
-                <LinkComponent title="Sign Up" href="/signup" type="header" />
-                <LinkComponent title="Posts" href="/posts" type="header" />
-                <LinkComponent title="Add post" href="/add" type="header" />
-                <LinkComponent title="Logout" href="/logout" type="header" />
-
+                {
+                    links.map(navigationElement => {
+                        return (
+                            <LinkComponent
+                                key={navigationElement.title}
+                                href={navigationElement.link}
+                                title={navigationElement.title}
+                                type="header"
+                            />
+                        )
+                    })
+                }
+                {userLoggedIn && <div><strong>{userLoggedIn.displayName}</strong></div>}
             </div>
         </header >
     )

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Header from '../../components/Header'
 import { auth } from '../../config/firebase'
+import Header from '../../components/Header'
 import { Button, Input } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import styles from './index.module.css'
