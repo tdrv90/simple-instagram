@@ -17,9 +17,6 @@ function Header() {
                 <LinkComponent title="Add post" href="/add" type="header" />
                 <LinkComponent title="Logout" href="/logout" type="header" />
             </div>
-            <div>
-                <h1>Simple Instagram</h1>
-            </div>
         </header >
     )
 }
