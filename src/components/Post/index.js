@@ -39,7 +39,7 @@ const Post = ({ postId, username, caption, imageUrl, user, myPosts }) => {
         }
     }
 
-    const handleDelete = (e) => {
+    const handleDeletePost = (e) => {
         e.preventDefault()
 
         if (user == username) {
@@ -61,31 +61,35 @@ const Post = ({ postId, username, caption, imageUrl, user, myPosts }) => {
             <img
                 className={styles.image}
                 src={imageUrl}
-                alt=""
+                alt={caption}
             />
-
-            <h4 className={styles.text}><strong>{username}</strong> {caption}</h4>
-            {myPosts && user == username && (
-                <div>
-                    <button
-                        type="submit"
-                        onClick={handleDelete}
-                    >
-                        Delete
+            <div className={styles.caption_and_delete}>
+                <h4 className={styles.text}><strong>{username}</strong> {caption}</h4>
+                {myPosts && user == username && (
+                    <div>
+                        <button
+                            className={styles.delete_button}
+                            type="submit"
+                            onClick={handleDeletePost}
+                        >
+                            Delete
                     </button>
-                </div>
-            )}
-            <div className="comments">
-                {comments.map((comment) => (
-                    <p>
-                        <strong>{comment.username}</strong> {comment.text}
-                    </p>
-                ))}
+                    </div>
+                )}
             </div>
             {user && (
-                <form className={styles.post__commentBox}>
+                <div className={styles.comment_comments}>
+                    {comments.map((comment) => (
+                        <p>
+                            <strong>{comment.username}</strong> {comment.text}
+                        </p>
+                    ))}
+                </div>
+            )}
+            {user && (
+                <form className={styles.comment_box}>
                     <input
-                        className={styles.post__input}
+                        className={styles.comment_input}
                         type="text"
                         placeholder="Add a comment"
                         value={comment}
@@ -93,7 +97,7 @@ const Post = ({ postId, username, caption, imageUrl, user, myPosts }) => {
                     />
                     <button
                         disabled={!comment}
-                        className={styles.post__button}
+                        className={styles.comment_button}
                         type="submit"
                         onClick={postComment}
                     >

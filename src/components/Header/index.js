@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import LinkComponent from '../Link'
 import { auth } from '../../config/firebase'
-import firebase from 'firebase'
 import getNavigation from '../../utils/navigation'
 import styles from './index.module.css'
 
@@ -13,7 +12,6 @@ function Header() {
             if (authUser) {
                 // user has logged in
                 setUserLoggedIn(authUser)
-                console.log('logging current user:', firebase.auth().currentUser.uid)
             } else {
                 // user has logged out
                 setUserLoggedIn(null)
@@ -24,7 +22,6 @@ function Header() {
             unsubscribe()
         }
     }, [userLoggedIn])
-
 
     const links = getNavigation(userLoggedIn)
 

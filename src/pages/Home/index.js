@@ -29,8 +29,8 @@ const Home = () => {
     return (
         <div>
             <Header />
-            <div className="homePage">
-                This is the home page if user is not logged in.
+            <div className={styles.text}>
+                Join, discover and share stories.
             </div>
         </div>
     )

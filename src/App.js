@@ -10,7 +10,6 @@ function App(props) {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         // user has logged in
-        console.log(authUser)
         setUserLoggedIn(authUser)
 
       } else {

@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 .post {
     align-self: center;
     background-color: white;
@@ -23,7 +28,45 @@
     border-bottom: 1px solid lightgray;
 }
 
+.caption_and_delete {
+    display: flex;
+}
+
 .text {
+    flex: 1;
     font-weight: normal;
+    padding: 10px;
+}
+
+.delete_button {
+    flex: 0;
+    margin-top: 10px;
+    padding: 5px;
+    border: none;
+    border-top: 1px solid lightgray;
+    background-color: lightgray;
+}
+
+.comment_box {
+    display: flex;
+    margin-top: 10px;
+}
+
+.comment_input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-top: 1px solid lightgray;
+}
+
+.comment_button {
+    flex: 0;
+    border: none;
+    padding: 10px;
+    border-top: 1px solid lightgray;
+    background-color: lightgray;
+}
+
+.comment_comments {
     padding: 20px;
 }

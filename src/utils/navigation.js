@@ -1,5 +1,5 @@
 const getNavigation = (userLoggedIn) => {
-    const authLinks = [
+    const authenticatedLinks = [
         {
             title: 'All Posts',
             link: '/posts'
@@ -9,7 +9,7 @@ const getNavigation = (userLoggedIn) => {
             link: '/myposts'
         },
         {
-            title: 'Add post',
+            title: 'Add Post',
             link: '/add'
         },
         {
@@ -20,20 +20,20 @@ const getNavigation = (userLoggedIn) => {
 
     const guestLinks = [
         {
+            title: 'Posts',
+            link: '/posts'
+        },
+        {
             title: 'Sign In',
             link: '/signin'
         },
         {
             title: 'Sign Up',
             link: '/signup'
-        },
-        {
-            title: 'Posts',
-            link: '/posts'
-        },
+        }
     ]
 
-    return userLoggedIn ? authLinks : guestLinks
+    return userLoggedIn ? authenticatedLinks : guestLinks
 }
 
 export default getNavigation

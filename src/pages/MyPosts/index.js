@@ -36,8 +36,6 @@ const MyPosts = () => {
         })
     }, [username])
 
-    console.log(posts)
-
     return (
         <div>
             <Header />
