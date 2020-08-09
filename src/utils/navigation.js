@@ -1,8 +1,12 @@
 const getNavigation = (userLoggedIn) => {
     const authLinks = [
         {
-            title: 'Posts',
+            title: 'All Posts',
             link: '/posts'
+        },
+        {
+            title: 'My Posts',
+            link: '/myposts'
         },
         {
             title: 'Add post',

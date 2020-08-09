@@ -4,8 +4,11 @@ import firebase from 'firebase'
 import { auth, storage, db } from '../../config/firebase'
 import styles from './index.module.css'
 import Header from '../../components/Header'
+import { useHistory } from 'react-router-dom'
+
 
 const AddPost = () => {
+    const history = useHistory()
     const [userLoggedIn, setUserLoggedIn] = useState(null)
 
     useEffect(() => {
@@ -29,8 +32,6 @@ const AddPost = () => {
     const [caption, setCaption] = useState('')
     const [image, setImage] = useState(null)
     const [progress, setProgress] = useState(0)
-
-    console.log('addpost:', userLoggedIn?.displayName)
 
     const handleChange = (e) => {
         if (e.target.files[0]) {
@@ -65,12 +66,13 @@ const AddPost = () => {
                             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                             caption,
                             imageUrl: url,
-                            // username: username
+                            username: userLoggedIn?.displayName
                         })
 
                         setProgress(0)
                         setCaption('')
                         setImage(null)
+                        history.push('/posts')
                     })
             }
         )

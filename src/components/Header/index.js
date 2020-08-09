@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import LinkComponent from '../Link'
 import { auth } from '../../config/firebase'
+import firebase from 'firebase'
 import getNavigation from '../../utils/navigation'
 import styles from './index.module.css'
 
@@ -11,9 +12,8 @@ function Header() {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
                 // user has logged in
-                console.log(authUser)
                 setUserLoggedIn(authUser)
-
+                console.log('logging current user:', firebase.auth().currentUser.uid)
             } else {
                 // user has logged out
                 setUserLoggedIn(null)
@@ -25,16 +25,20 @@ function Header() {
         }
     }, [userLoggedIn])
 
+
     const links = getNavigation(userLoggedIn)
 
     return (
         <header >
             <div className={styles.header}>
-                <img
-                    src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-                    alt=""
-                    className={styles.header_images}
-                />
+                <a href="/">
+                    <img
+                        src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+                        alt=""
+                        className={styles.header_images}
+                    />
+                </a>
+                {userLoggedIn && <div><strong>{userLoggedIn.displayName}</strong></div>}
                 {
                     links.map(navigationElement => {
                         return (
@@ -47,7 +51,6 @@ function Header() {
                         )
                     })
                 }
-                {userLoggedIn && <div><strong>{userLoggedIn.displayName}</strong></div>}
             </div>
         </header >
     )

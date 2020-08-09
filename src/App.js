@@ -25,9 +25,9 @@ function App(props) {
   }, [userLoggedIn])
 
   return (
-    < div className="App" >
+    <div className="App">
       {props.children}
-    </div >
+    </div>
   )
 }
 

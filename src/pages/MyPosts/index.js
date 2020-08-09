@@ -4,16 +4,17 @@ import Post from '../../components/Post'
 import { db, auth } from '../../config/firebase'
 import styles from './index.module.css'
 
-const AllPosts = () => {
+const MyPosts = () => {
     const [posts, setPosts] = useState([])
     const [userLoggedIn, setUserLoggedIn] = useState(null)
+    const [username, setUsername] = useState(null)
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
                 // user has logged in
-                console.log(authUser)
                 setUserLoggedIn(authUser)
+                setUsername(authUser?.displayName)
 
             } else {
                 // user has logged out
@@ -24,17 +25,18 @@ const AllPosts = () => {
         return () => {
             unsubscribe()
         }
-    }, [])
+    }, [userLoggedIn])
 
     useEffect(() => {
-        db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
+        db.collection('posts').where("username", "==", username).orderBy('timestamp', 'desc').onSnapshot(snapshot => {
             setPosts(snapshot.docs.map(doc => ({
                 id: doc.id,
                 post: doc.data()
             })))
         })
-    }, [])
+    }, [username])
 
+    console.log(posts)
 
     return (
         <div>
@@ -49,7 +51,7 @@ const AllPosts = () => {
                             caption={post.caption}
                             imageUrl={post.imageUrl}
                             user={userLoggedIn?.displayName}
-                            myPosts={false}
+                            myPosts={true}
                         />
                     )
                 })}
@@ -58,4 +60,4 @@ const AllPosts = () => {
     )
 }
 
-export default AllPosts
+export default MyPosts

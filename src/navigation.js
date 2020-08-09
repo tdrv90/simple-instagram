@@ -1,21 +1,24 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Posts from './pages/Posts'
-import SignIn from './pages/SignIn'
-import SignUp from './pages/SignUp'
-import Logout from './pages/Logout'
-import AddPost from './pages/AddPost'
+import HomePage from './pages/Home'
+import PostsPage from './pages/Posts'
+import MyPostsPage from './pages/MyPosts'
+import SignInPage from './pages/SignIn'
+import SignUpPage from './pages/SignUp'
+import LogoutPage from './pages/Logout'
+import AddPostPage from './pages/AddPost'
 
 const Navigation = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact component={Posts} />
-                <Route path="/posts" component={Posts} />
-                <Route path="/add" component={AddPost} />
-                <Route path="/signin" component={SignIn} />
-                <Route path="/signup" component={SignUp} />
-                <Route path="/logout" component={Logout} />
+                <Route path="/" exact component={HomePage} />
+                <Route path="/posts" component={PostsPage} />
+                <Route path="/myposts" component={MyPostsPage} />
+                <Route path="/add" component={AddPostPage} />
+                <Route path="/signin" component={SignInPage} />
+                <Route path="/signup" component={SignUpPage} />
+                <Route path="/logout" component={LogoutPage} />
             </Switch>
         </BrowserRouter>
     )
