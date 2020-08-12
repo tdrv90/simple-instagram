@@ -24,7 +24,7 @@ const Home = () => {
         return () => {
             unsubscribe()
         }
-    }, [userLoggedIn])
+    }, [userLoggedIn, history])
 
     return (
         <div>

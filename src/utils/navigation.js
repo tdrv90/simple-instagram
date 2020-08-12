@@ -13,7 +13,7 @@ const getNavigation = (userLoggedIn) => {
             link: '/add'
         },
         {
-            title: 'Logout',
+            title: `Logout (${userLoggedIn?.displayName})`,
             link: `/logout`
         }
     ]

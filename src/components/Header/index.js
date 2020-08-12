@@ -35,7 +35,6 @@ function Header() {
                         className={styles.header_images}
                     />
                 </a>
-                {userLoggedIn && <div><strong>{userLoggedIn.displayName}</strong></div>}
                 {
                     links.map(navigationElement => {
                         return (
