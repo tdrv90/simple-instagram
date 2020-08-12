@@ -45,17 +45,14 @@ const AddPost = () => {
         uploadTask.on(
             "state_changed",
             (snapshot) => {
-                // progress function ...
                 const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
                 setProgress(progress)
             },
             (error) => {
-                // error function
                 console.log(error)
                 alert(error.message)
             },
             () => {
-                // complete function
                 storage
                     .ref('images')
                     .child(image.name)

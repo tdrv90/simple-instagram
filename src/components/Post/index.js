@@ -42,7 +42,7 @@ const Post = ({ postId, username, caption, imageUrl, user, myPosts }) => {
     const handleDeletePost = (e) => {
         e.preventDefault()
 
-        if (user == username) {
+        if (user === username) {
             db.collection('posts').doc(postId).delete();
         }
     }
@@ -65,7 +65,7 @@ const Post = ({ postId, username, caption, imageUrl, user, myPosts }) => {
             />
             <div className={styles.caption_and_delete}>
                 <h4 className={styles.text}><strong>{username}</strong> {caption}</h4>
-                {myPosts && user == username && (
+                {myPosts && user === username && (
                     <div>
                         <button
                             className={styles.delete_button}
