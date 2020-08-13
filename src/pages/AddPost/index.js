@@ -40,6 +40,16 @@ const AddPost = () => {
     }
 
     const handleUpload = (e) => {
+        // Input validation
+        if (!caption && !image) {
+            return alert('Please enter caption and image.')
+        }
+        if (!caption) {
+            return alert('Please enter caption.')
+        }
+        if (!image) {
+            return alert('Please select image.')
+        }
         const uploadTask = storage.ref(`images/${image.name}`).put(image)
 
         uploadTask.on(
