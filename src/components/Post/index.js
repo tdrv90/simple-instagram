@@ -28,7 +28,7 @@ const Post = ({ postId, username, caption, imageUrl, user, myPosts }) => {
 
     const postComment = (e) => {
         e.preventDefault()
-        
+
         // Input validation
         if (!comment) {
             return alert('Please enter comment.')
@@ -53,9 +53,12 @@ const Post = ({ postId, username, caption, imageUrl, user, myPosts }) => {
     const handleDeletePost = (e) => {
         e.preventDefault()
 
-        if (user === username) {
+        let checkConfirmation = window.confirm('Are you sure you want to delete your post?')
+
+        if (checkConfirmation === true && user === username) {
             db.collection('posts').doc(postId).delete();
         }
+
     }
 
     return (
