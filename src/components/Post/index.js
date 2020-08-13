@@ -28,6 +28,17 @@ const Post = ({ postId, username, caption, imageUrl, user, myPosts }) => {
 
     const postComment = (e) => {
         e.preventDefault()
+        
+        // Input validation
+        if (!comment) {
+            return alert('Please enter comment.')
+        }
+
+        // Limit length of comment
+        if (comment.length > 300) {
+            return alert('Please enter comment less than 300 symbols.')
+        }
+
         if (user) {
             db.collection('posts').doc(postId).collection('comments').add({
                 text: comment,

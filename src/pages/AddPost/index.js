@@ -50,6 +50,11 @@ const AddPost = () => {
         if (!image) {
             return alert('Please select image.')
         }
+
+        // Limit length of caption text
+        if (caption.length > 600) {
+            return alert('Please add caption less than 600 symbols.')
+        }
         const uploadTask = storage.ref(`images/${image.name}`).put(image)
 
         uploadTask.on(
@@ -108,6 +113,5 @@ const AddPost = () => {
         </div>
     )
 }
-
 
 export default AddPost
