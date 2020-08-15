@@ -15,9 +15,12 @@ const SignIn = () => {
         e.preventDefault()
 
         auth.signInWithEmailAndPassword(email, password)
-            .catch((error) => alert(error.message))
+            .catch((error) => {
+                alert(error.message)
+                history.push('/signin')
+            })
+            .then(history.push('/'))
 
-        history.push('/')
     }
     return (
         <div >
