@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './index.module.css'
 import { db } from '../../config/firebase'
+import { Button } from '@material-ui/core'
 import firebase from 'firebase'
 
 const Comment = ({ postId, user }) => {
@@ -10,7 +11,6 @@ const Comment = ({ postId, user }) => {
 
     useEffect(() => {
         let unsubscribe;
-        console.log(unsubscribe)
         if (postId) {
             unsubscribe = db
                 .collection('posts')
@@ -68,14 +68,15 @@ const Comment = ({ postId, user }) => {
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
                 />
-                <button
+                <Button
+                    variant="contained"
                     disabled={!comment}
                     className={styles.comment_button}
                     type="submit"
                     onClick={postComment}
                 >
                     Post
-                </button>
+                </Button>
             </form>
         </>
     )

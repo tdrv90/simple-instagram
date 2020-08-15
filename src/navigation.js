@@ -7,6 +7,7 @@ import SignInPage from './pages/SignIn'
 import SignUpPage from './pages/SignUp'
 import LogoutPage from './pages/Logout'
 import AddPostPage from './pages/AddPost'
+import ProfilePage from './pages/Profile'
 
 const Navigation = () => {
     return (
@@ -19,6 +20,7 @@ const Navigation = () => {
                 <Route path="/signin" component={SignInPage} />
                 <Route path="/signup" component={SignUpPage} />
                 <Route path="/logout" component={LogoutPage} />
+                <Route path="/profile" component={ProfilePage} />
             </Switch>
         </BrowserRouter>
     )

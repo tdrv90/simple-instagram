@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styles from './index.module.css'
 import { db } from '../../config/firebase'
 import firebase from 'firebase'
+import { Button } from '@material-ui/core'
 
 const Likes = ({ postId, user }) => {
     const [likes, setLikes] = useState([])
@@ -52,24 +53,26 @@ const Likes = ({ postId, user }) => {
             {!usersLikes.includes(user) &&
                 (
                     <div className={styles.button_wrapper}>
-                        <button
+                        <Button
+                            variant="contained"
                             type="submit"
                             onClick={handleLike}
                         >
                             Like
-                        </button>
+                        </Button>
                     </div>
                 )
             }
             {usersLikes.includes(user) &&
                 (
                     <div className={styles.button_wrapper}>
-                        <button
+                        <Button
+                            variant="contained"
                             type="submit"
                             onClick={handleDislike}
                         >
                             Unlike
-                        </button>
+                        </Button>
                     </div>
                 )
             }

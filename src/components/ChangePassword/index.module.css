@@ -1,0 +1,7 @@
+.changePassword_box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-self: center;
+    padding: 20px;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Input } from '@material-ui/core'
+import { Button, Input, TextField } from '@material-ui/core'
 import firebase from 'firebase'
 import { auth, storage, db } from '../../config/firebase'
 import styles from './index.module.css'
@@ -15,7 +15,6 @@ const AddPost = () => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
                 // user has logged in
-                console.log(authUser)
                 setUserLoggedIn(authUser)
 
             } else {
@@ -64,7 +63,6 @@ const AddPost = () => {
                 setProgress(progress)
             },
             (error) => {
-                console.log(error)
                 alert(error.message)
             },
             () => {
@@ -96,7 +94,7 @@ const AddPost = () => {
 
             <div className={styles.imageUpload}>
                 <progress className={styles.progress} value={progress} max="100" />
-                <Input
+                <TextField
                     type="text"
                     placeholder="Enter a caption"
                     onChange={e => setCaption(e.target.value)}
@@ -106,9 +104,12 @@ const AddPost = () => {
                     type="file"
                     onChange={handleChange}
                 />
-                <Button onClick={handleUpload}>
+                <Button
+                    variant="contained"
+                    onClick={handleUpload}
+                >
                     Upload
-            </Button>
+                </Button>
             </div>
         </div>
     )

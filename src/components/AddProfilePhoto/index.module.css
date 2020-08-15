@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .imageUpload {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    position: relative;
+    align-self: center;
+    margin-bottom: 10px;
+    background-color: white;
+    border-top: 1px solid lightgray;
+} */
+
+.imageUpload {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-top: 1px solid lightgray;
+}
+
+.progress {
+    width: 100%;
+}
+
+.image_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.image {
+    align-self: center;
+    padding: 20px;
+    width: 20%;
+    height: 20%;
+}

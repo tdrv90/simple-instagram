@@ -13,7 +13,11 @@ const getNavigation = (userLoggedIn) => {
             link: '/add'
         },
         {
-            title: `Logout (${userLoggedIn?.displayName})`,
+            title: `Profile (${userLoggedIn?.displayName})`,
+            link: '/profile'
+        },
+        {
+            title: 'Logout',
             link: `/logout`
         }
     ]

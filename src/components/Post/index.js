@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './index.module.css'
 import Avatar from '@material-ui/core/Avatar'
-import { db } from '../../config/firebase'
+import { Button } from '@material-ui/core'
+import { db, storage } from '../../config/firebase'
 import Comment from '../Comment'
 import Likes from '../Likes'
 
 const Post = ({ postId, username, caption, imageUrl, user, myPosts }) => {
+    const [avatar, setAvatar] = useState(null)
+
+    const profilePicURL = storage
+        .ref('profile_images')
+        .child(username)
+        .getDownloadURL()
+        .then(url => {
+            setAvatar(url)
+        })
+
+    console.log(avatar)
 
     const handleDeletePost = (e) => {
         e.preventDefault()
@@ -24,7 +36,7 @@ const Post = ({ postId, username, caption, imageUrl, user, myPosts }) => {
                 <Avatar
                     className={styles.avatar}
                     alt={username}
-                    src="/static/images/avatar/1.jpg"
+                    src={avatar}
                 />
                 <h3>{username}</h3>
             </div>
@@ -38,13 +50,14 @@ const Post = ({ postId, username, caption, imageUrl, user, myPosts }) => {
                 <h4 className={styles.text}><strong>{username}</strong> {caption}</h4>
                 {myPosts && user === username && (
                     <div>
-                        <button
+                        <Button
+                            variant="contained"
                             className={styles.delete_button}
                             type="submit"
                             onClick={handleDeletePost}
                         >
                             Delete
-                    </button>
+                    </Button>
                     </div>
                 )}
             </div>

@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.section {
+    padding-top: 20px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    align-self: center;
+}
+
+.user_details {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 30px;
+    padding-bottom: 50px;
+}
