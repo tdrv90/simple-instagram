@@ -29,8 +29,13 @@ const Home = () => {
     return (
         <div>
             <Header />
-            <div className={styles.text}>
-                Join, discover and share stories.
+            <div className={styles.container}>
+                <div className={styles.image_wrapper}>
+                    <img className={styles.image} src="https://images.unsplash.com/photo-1544923408-75c5cef46f14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80" alt="Guest home page" />
+                </div>
+                <div className={styles.text}>
+                    Join, discover and share stories.
+                </div>
             </div>
         </div>
     )
