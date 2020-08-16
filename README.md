@@ -1,68 +1,81 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Simple Instagram
 
-## Available Scripts
+### Description
+Instagram clone. Allows to share, view, like, and comment photos.
 
-In the project directory, you can run:
+### Table of Contents
+  - [Technologies](#technologies)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies
+Technologies and packages used:
+  - ReactJS (with create-react app)
+  - React Router DOM
+  - Material UI
+  - Node.js v12.16.3
+  - Firebase Authentication
+  - Firebase Database
+  - Firebase Storage
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Installation
 
-### `npm test`
+#### 1. Clone 
+   
+  Clone this repo on your local machine from [https://github.com/tdrv90/simple-instagram].
+#### 2. Setup
+```
+    npm install
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+#### 3. Run
 
-### `npm run build`
+```
+    npm start
+```
+and open http://localhost:3000 in your browser.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
+The app has a public part (accessible without authentication) and private part (available for registered users)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Public part
+1. Guest Home Page: static page with, renders header with links to Posts / Sign In and Sign Up pages.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Guest Home Page](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F01-home.png?alt=media&token=4d504d66-a36e-44de-90bd-02996404ba12)
 
-### `npm run eject`
+2. Posts Page: the guest can see posts from registered users, but cannot comment or like them.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Guests Posts Page](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F01-posts-guest.png?alt=media&token=e7883d91-7869-4a5f-8aaa-5e5b1b92b428)
+3. Sign In Page: the user can authenticate with their profile
+![Sign In Page](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F02-signin.png?alt=media&token=049dbcbe-3b8c-426c-ae70-a1e74ebdf718)
+4. Sign Up Page: the guest can register an account with the profile name, email, and password 
+![Sign Up Page](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F03-signup.png?alt=media&token=0cdcbe6b-f49f-4644-8244-d42157cab415)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Private part
+1. Home Page: once the user has authenticated the Guests Home Page is not visible for them and it redirects to '/posts'
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. Posts Page: the user can see all available posts ordered in descending view (the latest posts are on top) and can comment on them. There is Likes functionality available for authenticated users. Liked posts can also be unliked which will remove the like from the logged user.
+![Posts Page Authenticated](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F04-posts.png?alt=media&token=4dd85e04-7abd-47d0-9fc0-009f15508534)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+3. My Posts Page: this page shows the posts only from the logged user. Also, it provides functionality to delete your posts.
 
-## Learn More
+![My Posts Page](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F05-myposts.png?alt=media&token=6105570c-6576-40ef-969d-9330a5a1ebab)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Add Post Page: this is the page from where new posts are added. To add a new post the user must write a caption and select a photo.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Add Post](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F08-addpost.png?alt=media&token=2cf71511-1576-458a-8c37-f15bf147260e)
 
-### Code Splitting
+5. Profile Page: provides basic profile details (username and email), functionality to change the user password, and image upload module to add a profile photo.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+![Profile Page](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F06-profile.png?alt=media&token=f2452b13-24b3-4621-a728-8b8737e62b33)
 
-### Analyzing the Bundle Size
+6. Logout Page: Logouts the user and redirects to Guest Home Page
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+![Logout Page](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F07-logout.png?alt=media&token=8b575c38-bf38-48c4-b574-90269b44fc3c)
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## License
+MIT
