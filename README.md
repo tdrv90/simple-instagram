@@ -48,9 +48,13 @@ The app has a public part (accessible without authentication) and private part (
 2. Posts Page: the guest can see posts from registered users, but cannot comment or like them.
 
 ![Guests Posts Page](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F01-posts-guest.png?alt=media&token=e7883d91-7869-4a5f-8aaa-5e5b1b92b428)
+
 3. Sign In Page: the user can authenticate with their profile
+
 ![Sign In Page](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F02-signin.png?alt=media&token=049dbcbe-3b8c-426c-ae70-a1e74ebdf718)
+
 4. Sign Up Page: the guest can register an account with the profile name, email, and password 
+
 ![Sign Up Page](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F03-signup.png?alt=media&token=0cdcbe6b-f49f-4644-8244-d42157cab415)
 
 ### Private part
