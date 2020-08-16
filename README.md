@@ -7,6 +7,7 @@ Instagram clone. Allows to share, view, like, and comment photos.
   - [Technologies](#technologies)
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Link to live version](#live)
   - [License](#license)
 
 
@@ -25,7 +26,7 @@ Technologies and packages used:
 
 #### 1. Clone 
    
-  Clone this repo on your local machine from [https://github.com/tdrv90/simple-instagram].
+  Clone this repo on your local machine from https://github.com/tdrv90/simple-instagram.
 #### 2. Setup
 ```
     npm install
@@ -79,7 +80,10 @@ The app has a public part (accessible without authentication) and private part (
 
 ![Logout Page](https://firebasestorage.googleapis.com/v0/b/simple-instagram-4f24f.appspot.com/o/screenshots%2F07-logout.png?alt=media&token=8b575c38-bf38-48c4-b574-90269b44fc3c)
 
+## Live
+You can check the live version here:
 
+https://simple-instagram-4f24f.web.app/
 
 ## License
 MIT
