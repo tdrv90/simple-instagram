@@ -3,6 +3,7 @@ import Header from '../../components/Header'
 import { useHistory } from 'react-router-dom'
 import { auth } from '../../config/firebase'
 import styles from './index.module.css'
+import Helmet from 'react-helmet'
 
 const Home = () => {
     const history = useHistory()
@@ -27,6 +28,9 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Simple Instagram - Home</title>
+            </Helmet>
             <Header />
             <div className={styles.container}>
                 <div className={styles.image_wrapper}>

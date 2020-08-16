@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { auth } from '../../config/firebase'
 import { Button, Input } from '@material-ui/core'
 import styles from './index.module.css'
+import Helmet from 'react-helmet'
 
 const SignIn = () => {
     const history = useHistory()
@@ -28,15 +29,13 @@ const SignIn = () => {
 
     return (
         <div >
+            <Helmet>
+                <title>Simple Instagram - Sign Up</title>
+            </Helmet>
             <Header />
             <form className={styles.container}>
-
                 <center>
-                    <img
-                        src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-                        alt=""
-                        className="modal__headerImage"
-                    />
+                    <div className={styles.register}>REGISTER</div>
                 </center>
                 <div>
                     <div>
@@ -63,8 +62,12 @@ const SignIn = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
+                    <div className={styles.button}>
+                        <center>
+                            <Button variant="contained" type="submit" onClick={signUp}>Sign Up</Button>
+                        </center>
+                    </div>
                 </div>
-                <Button type="submit" onClick={signUp}>Sign Up</Button>
             </form>
         </div >
     )

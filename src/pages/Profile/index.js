@@ -4,6 +4,7 @@ import Header from '../../components/Header'
 import styles from './index.module.css'
 import AddProfilePhoto from '../../components/AddProfilePhoto'
 import ChangePassword from '../../components/ChangePassword'
+import Helmet from 'react-helmet'
 
 const ProfilePage = () => {
     const [userLoggedIn, setUserLoggedIn] = useState(null)
@@ -27,6 +28,9 @@ const ProfilePage = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Simple Instagram - Profile</title>
+            </Helmet>
             <Header />
             {userLoggedIn && (
                 <div className={styles.container}>

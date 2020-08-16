@@ -4,6 +4,7 @@ import Header from '../../components/Header'
 import { Button, Input } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import styles from './index.module.css'
+import Helmet from 'react-helmet'
 
 const SignIn = () => {
     const history = useHistory()
@@ -24,12 +25,14 @@ const SignIn = () => {
     }
     return (
         <div >
+            <Helmet>
+                <title>Simple Instagram - Sign In</title>
+            </Helmet>
             <Header />
             <form className={styles.container}>
-                <img
-                    src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-                    alt="instagram logo"
-                />
+                <center>
+                    <div className={styles.login}>LOGIN</div>
+                </center>
                 <div>
                     <Input
                         placeholder="email"
@@ -46,7 +49,11 @@ const SignIn = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                <Button type="submit" onClick={signIn}>Sign In</Button>
+                <div className={styles.button}>
+                    <center>
+                        <Button variant="contained" type="submit" onClick={signIn}>Sign In</Button>
+                    </center>
+                </div>
             </form>
         </div >
     )

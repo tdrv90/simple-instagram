@@ -3,6 +3,7 @@ import Header from '../../components/Header'
 import Post from '../../components/Post'
 import { db, auth } from '../../config/firebase'
 import styles from './index.module.css'
+import Helmet from 'react-helmet'
 
 const AllPosts = () => {
     const [posts, setPosts] = useState([])
@@ -36,6 +37,9 @@ const AllPosts = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Simple Instagram - Posts</title>
+            </Helmet>
             <Header />
             <div className={styles.container}>
                 {posts.map(({ id, post }) => {

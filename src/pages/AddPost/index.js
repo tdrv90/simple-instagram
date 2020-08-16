@@ -5,7 +5,7 @@ import { auth, storage, db } from '../../config/firebase'
 import styles from './index.module.css'
 import Header from '../../components/Header'
 import { useHistory } from 'react-router-dom'
-
+import Helmet from 'react-helmet'
 
 const AddPost = () => {
     const history = useHistory()
@@ -90,6 +90,10 @@ const AddPost = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Simple Instagram - Add Post</title>
+            </Helmet>
+
             <Header />
 
             <div className={styles.imageUpload}>

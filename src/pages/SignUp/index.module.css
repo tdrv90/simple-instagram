@@ -6,3 +6,12 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
+.register {
+    padding-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.button {
+    padding-top: 20px;
+}
