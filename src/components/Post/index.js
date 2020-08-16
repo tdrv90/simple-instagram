@@ -9,15 +9,13 @@ import Likes from '../Likes'
 const Post = ({ postId, username, caption, imageUrl, user, myPosts }) => {
     const [avatar, setAvatar] = useState(null)
 
-    const profilePicURL = storage
+    storage
         .ref('profile_images')
         .child(username)
         .getDownloadURL()
         .then(url => {
             setAvatar(url)
         })
-
-    console.log(avatar)
 
     const handleDeletePost = (e) => {
         e.preventDefault()
