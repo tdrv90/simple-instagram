@@ -14,6 +14,7 @@ Instagram clone. Allows to share, view, like, and comment photos.
 Technologies and packages used:
   - ReactJS (with create-react app)
   - React Router DOM
+  - React Helmet
   - Material UI
   - Node.js v12.16.3
   - Firebase Authentication
@@ -28,7 +29,6 @@ Technologies and packages used:
 #### 2. Setup
 ```
     npm install
-
 ```
 #### 3. Run
 
