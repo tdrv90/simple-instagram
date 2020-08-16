@@ -51,7 +51,7 @@ const AddPost = () => {
         }
 
         // Limit length of caption text
-        if (caption.length > 600) {
+        if (caption.length > 1500) {
             return alert('Please add caption less than 600 symbols.')
         }
         const uploadTask = storage.ref(`images/${image.name}`).put(image)
