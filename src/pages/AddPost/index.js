@@ -11,6 +11,10 @@ const AddPost = () => {
     const history = useHistory()
     const [userLoggedIn, setUserLoggedIn] = useState(null)
 
+    const [caption, setCaption] = useState('')
+    const [image, setImage] = useState(null)
+    const [progress, setProgress] = useState(0)
+
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
@@ -27,10 +31,6 @@ const AddPost = () => {
             unsubscribe()
         }
     }, [userLoggedIn])
-
-    const [caption, setCaption] = useState('')
-    const [image, setImage] = useState(null)
-    const [progress, setProgress] = useState(0)
 
     const handleChange = (e) => {
         if (e.target.files[0]) {

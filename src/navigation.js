@@ -18,9 +18,9 @@ const Navigation = () => {
                 <Route path="/myposts" component={MyPostsPage} />
                 <Route path="/add" component={AddPostPage} />
                 <Route path="/signin" component={SignInPage} />
+                <Route path="/profile" component={ProfilePage} />
                 <Route path="/signup" component={SignUpPage} />
                 <Route path="/logout" component={LogoutPage} />
-                <Route path="/profile" component={ProfilePage} />
             </Switch>
         </BrowserRouter>
     )

@@ -20,7 +20,7 @@ const SignIn = () => {
                 alert(error.message)
                 history.push('/signin')
             })
-            .then(history.push('/'))
+            .then(history.push('/posts'))
 
     }
     return (
