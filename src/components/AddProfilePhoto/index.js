@@ -53,7 +53,7 @@ const AddProfilePhoto = ({ user }) => {
     return (
         <div className={styles.container}>
             <div className={styles.image_wrapper}>
-                <img src={user.photoURL} alt="profile photo" className={styles.image} />
+                <img src={user.photoURL} alt="profile" className={styles.image} />
             </div>
             <div className={styles.imageUpload}>
                 <progress className={styles.progress} value={progress} max="100" />
