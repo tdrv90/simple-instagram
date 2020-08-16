@@ -29,7 +29,7 @@ const ChangePassword = () => {
                     <Input
                         className={styles.password}
                         type="password"
-                        placeholder="Enter your new password"
+                        placeholder="New password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
@@ -38,12 +38,12 @@ const ChangePassword = () => {
                     <Input
                         className={styles.password}
                         type="password"
-                        placeholder="Enter your new password"
+                        placeholder="Re new password"
                         value={repassword}
                         onChange={(e) => setRepassword(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className={styles.button}>
                     <Button
                         variant="contained"
                         disabled={!(password === repassword)}

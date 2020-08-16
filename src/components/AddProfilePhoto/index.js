@@ -61,11 +61,13 @@ const AddProfilePhoto = ({ user }) => {
                     type="file"
                     onChange={handleChange}
                 />
-                <Button
-                    variant="contained"
-                    onClick={handleUpload}>
-                    Upload
-                </Button>
+                <center className={styles.button}>
+                    <Button
+                        variant="contained"
+                        onClick={handleUpload}>
+                        Upload
+                    </Button>
+                </center>
             </div>
         </div>
     )
